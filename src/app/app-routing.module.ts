@@ -1,3 +1,4 @@
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipesDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipStartComponent } from './recipes/recip-start/recip-start.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -10,7 +11,9 @@ const appRoutes: Routes = [
   { path:'', redirectTo:'/recipes', pathMatch:'full'},
   { path: 'recipes', component:RecipesComponent , children:[
     {path:'', component:RecipStartComponent},
-    {path:':id', component: RecipesDetailComponent}
+    {path :'new',component:RecipeEditComponent},
+    {path:':id', component: RecipesDetailComponent},
+    {path :':id/edit',component:RecipeEditComponent}
   ]},
   { path: 'shopping-list', component:ShoppingListComponent }
 ];
@@ -20,5 +23,4 @@ const appRoutes: Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule{
-
 }
